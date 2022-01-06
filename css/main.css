@@ -1,0 +1,192 @@
+/* CSS variables */
+:root {
+  /* Fonts */
+  --font: 'Red Hat Display', system-ui, sans-serif;
+  --font-size-1: 1;
+  --font-weight-1: 500;
+  --font-weight-2: 700;
+  --font-weight-3: 900;
+  --font-lineheight-1: 1.5;
+  --font-lineheight-2: 1.25;
+
+  /* Colors */
+  --surface-1: hsl(225, 100%, 94%);
+  --surface-2: hsl(245, 75%, 52%);
+
+  --accent-1: hsl(225, 100%, 98%);
+  --accent-2: hsl(224, 23%, 55%);
+  --accent-3: hsl(223, 47%, 23%);
+
+  --hover: hsl(245, 83%, 68%);
+
+  /* Sizes */
+  --size-0: -0.25rem;
+  --size-1: 0.25rem;
+  --size-2: 0.5rem;
+  --size-3: 1rem;
+  --size-4: 1.25rem;
+  --size-5: 1.5rem;
+
+  /* Borders */
+  --radius-1: 0.5rem;
+  --radius-2: 1rem;
+  --radius-round: 1e5px;
+
+  /* Shadow */
+  --shadow-1: 0 30px 25px -5px hsla(245, 75%, 52%, 0.1);
+  --shadow-2: 0 25px 25px 0 hsla(245, 83%, 68%, 0.2);
+
+  /* Easing */
+  --easing-1: 0.25s ease-in-out;
+
+  /* Breakpoints */
+  --breakpoint-1: 375px;
+}
+
+/* Basic styles */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  block-size: 100%;
+  font-family: var(--font);
+  font-weight: var(--font-weight-1);
+  line-height: var(--font-lineheight-1);
+}
+
+body {
+  min-block-size: 100%;
+  display: grid;
+  place-content: center;
+  background-color: var(--surface-1);
+  background-image: url('../images/pattern-background-mobile.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: var(--accent-3);
+}
+
+h1 {
+  line-height: var(--font-lineheight-2);
+  font-weight: var(--font-weight-3);
+}
+
+h2 {
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-2);
+}
+
+p {
+  max-inline-size: 25ch;
+  color: var(--accent-2);
+}
+
+img,
+svg {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+a {
+  cursor: pointer;
+  touch-action: manipulation;
+  margin: var(--size-0);
+  padding: var(--size-1);
+  font-weight: var(--font-weight-2);
+  font-size: 0.9rem;
+  text-underline-offset: 1px;
+  color: var(--surface-2);
+  transition: color var(--easing-1);
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--hover);
+}
+
+/* Card styles */
+main {
+  display: grid;
+  gap: var(--size-2);
+  justify-items: center;
+  inline-size: calc(var(--breakpoint-1) - 25px);
+  border-radius: var(--radius-2);
+  overflow: hidden;
+  background: white;
+  text-align: center;
+  box-shadow: var(--shadow-1);
+}
+
+/* Plan styles */
+.purchase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  inline-size: 85%;
+  padding: var(--size-4);
+  background-color: var(--accent-1);
+  border-radius: var(--radius-1);
+}
+
+.plan {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4);
+}
+
+.plan-details > * {
+  margin: 0;
+}
+
+/* Footer styles */
+footer {
+  display: grid;
+  gap: var(--size-4);
+  inline-size: 85%;
+  padding-block: var(--size-4);
+}
+
+.btn {
+  cursor: pointer;
+  inline-size: 100%;
+  padding-block: var(--size-3);
+  border: none;
+  border-radius: var(--radius-1);
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: var(--font-weight-2);
+  transition: background-color var(--easing-1), color var(--easing-1);
+}
+
+.btn-cta {
+  background-color: var(--surface-2);
+  color: white;
+  box-shadow: var(--shadow-2);
+}
+
+.btn-cta:hover {
+  background-color: var(--hover);
+}
+
+.btn-transparent {
+  color: var(--accent-2);
+}
+
+.btn-transparent:hover {
+  color: var(--accent-3);
+}
+
+/* Desktop size */
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url('../images/pattern-background-desktop.svg');
+  }
+
+  main {
+    inline-size: calc(var(--breakpoint-1) + 75px);
+  }
+}
